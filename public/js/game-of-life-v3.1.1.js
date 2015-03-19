@@ -47,6 +47,7 @@
     // Initial state
     initialState : '[{"20":[20]},{"21":[21]},{"22":[20,22,23,24,25]}]',
 
+
     // Trail state
     trail : {
       current: true,
@@ -537,12 +538,17 @@
          */
         sense : function() {
           var xhr = new XMLHttpRequest();
-          xhr.open("GET", "http://sensor-api.localdata.com/api/v1/sources/ci4tmxpz8000002w7au38un50/entries?from=2015-01-14T00:00:00-0800&before=2015-01-15T00:00:00-0800", false);
+          xhr.open("GET", "http://sensor-api.localdata.com/api/v1/sources/ci4tmxpz8000002w7au38un50/entries?count=1&sort=desc", false);
           xhr.send();
           console.log(xhr.status);
           console.log(xhr.statusText);
           console.log(xhr.responseText);
-          GOL.canvas.drawWorld();
+          GOL.colors.current = (GOL.colors.current + 1) % GOL.colors.schemes.length;
+          if (GOL.running) {
+            GOL.colors.schedule = true; // Delay redraw
+          } else {
+            GOL.canvas.drawWorld(); // Force complete redraw
+          }
         },
 
 
@@ -606,7 +612,7 @@
         this.context = this.canvas.getContext('2d');
 
         this.cellSize = GOL.zoom.schemes[GOL.zoom.current].cellSize;
-        this.cellSpace = 1;
+        this.cellSpace = 0;
 
         GOL.helpers.registerEvent(this.canvas, 'mousedown', GOL.handlers.canvasMouseDown, false);
         GOL.helpers.registerEvent(document, 'mouseup', GOL.handlers.canvasMouseUp, false);
