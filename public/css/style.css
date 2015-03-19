@@ -8,6 +8,7 @@ body {
   font-size: 14px;
   color: #000000;
   background-color: #124a51;
+  margin: 0px;
 }
 
 a {
@@ -37,8 +38,8 @@ abbr {
 }
 
 #wrapper {
-  margin: auto;
   width: 902px;
+  margin: auto;
 }
 
 #title {

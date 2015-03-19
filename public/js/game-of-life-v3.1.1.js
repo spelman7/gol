@@ -119,7 +119,7 @@
 
       schemes : [
       {
-        dead : '#000000',
+        dead : '#222222',
         trail : ['#B5ECA2'],
         alive : ['#9898FF', '#8585FF', '#7272FF', '#5F5FFF', '#4C4CFF', '#3939FF', '#2626FF', '#1313FF', '#0000FF', '#1313FF', '#2626FF', '#3939FF', '#4C4CFF', '#5F5FFF', '#7272FF', '#8585FF']
       },
@@ -137,7 +137,7 @@
       },
 
       {
-        dead : '#000000',
+        dead : '#222222',
         trail : ['#FF0000'],
         alive : ['#FFFFFF']
       }
@@ -303,6 +303,7 @@
       this.helpers.registerEvent(document.getElementById('buttonTrail'), 'click', this.handlers.buttons.trail, false);
       this.helpers.registerEvent(document.getElementById('buttonGrid'), 'click', this.handlers.buttons.grid, false);
       this.helpers.registerEvent(document.getElementById('buttonColors'), 'click', this.handlers.buttons.colors, false);
+      this.helpers.registerEvent(document.getElementById('buttonSense'), 'click', this.handlers.buttons.sense, false);
     },
 
 
@@ -528,6 +529,20 @@
           } else {
             GOL.canvas.drawWorld(); // Force complete redraw
           }
+        },
+
+
+        /**
+         *
+         */
+        sense : function() {
+          var xhr = new XMLHttpRequest();
+          xhr.open("GET", "http://sensor-api.localdata.com/api/v1/sources/ci4tmxpz8000002w7au38un50/entries?from=2015-01-14T00:00:00-0800&before=2015-01-15T00:00:00-0800", false);
+          xhr.send();
+          console.log(xhr.status);
+          console.log(xhr.statusText);
+          console.log(xhr.responseText);
+          GOL.canvas.drawWorld();
         },
 
 
