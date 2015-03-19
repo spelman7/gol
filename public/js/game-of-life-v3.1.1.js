@@ -13,7 +13,7 @@
     columns : 0,
     rows : 0,
 
-    waitTime: 0,
+    waitTime: 1000,
     generation : 0,
 
     running : false,
@@ -45,7 +45,7 @@
     },
 
     // Initial state
-    initialState : '[{"39":[110]},{"40":[112]},{"41":[109,110,113,114,115]}]',
+    initialState : '[{"20":[20]},{"21":[21]},{"22":[20,22,23,24,25]}]',
 
     // Trail state
     trail : {
@@ -119,21 +119,27 @@
 
       schemes : [
       {
-        dead : '#FFFFFF',
+        dead : '#000000',
         trail : ['#B5ECA2'],
         alive : ['#9898FF', '#8585FF', '#7272FF', '#5F5FFF', '#4C4CFF', '#3939FF', '#2626FF', '#1313FF', '#0000FF', '#1313FF', '#2626FF', '#3939FF', '#4C4CFF', '#5F5FFF', '#7272FF', '#8585FF']
       },
 
       {
-        dead : '#FFFFFF',
+        dead : '#000000',
         trail : ['#EE82EE', '#FF0000', '#FF7F00', '#FFFF00', '#008000 ', '#0000FF', '#4B0082'],
         alive : ['#FF0000', '#FF7F00', '#FFFF00', '#008000 ', '#0000FF', '#4B0082', '#EE82EE']
       },
 
       {
-        dead : '#FFFFFF',
+        dead : '#000000',
         trail : ['#9898FF', '#8585FF', '#7272FF', '#5F5FFF', '#4C4CFF', '#3939FF', '#2626FF', '#1313FF', '#0000FF', '#1313FF', '#2626FF', '#3939FF', '#4C4CFF', '#5F5FFF', '#7272FF', '#8585FF'],
         alive : ['#000000']
+      },
+
+      {
+        dead : '#000000',
+        trail : ['#FF0000'],
+        alive : ['#FFFFFF']
       }
 
       ]
