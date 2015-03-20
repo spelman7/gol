@@ -537,18 +537,248 @@
          *
          */
         sense : function() {
-          var xhr = new XMLHttpRequest();
-          xhr.open("GET", "http://sensor-api.localdata.com/api/v1/sources/ci4tmxpz8000002w7au38un50/entries?count=1&sort=desc", false);
-          xhr.send();
-          console.log(xhr.status);
-          console.log(xhr.statusText);
-          console.log(xhr.responseText);
-          GOL.colors.current = (GOL.colors.current + 1) % GOL.colors.schemes.length;
-          if (GOL.running) {
-            GOL.colors.schedule = true; // Delay redraw
-          } else {
-            GOL.canvas.drawWorld(); // Force complete redraw
-          }
+          var originLatitude = 37.837571
+          var originLongitude = -122.523032
+          var latDifference = 0.0013851875
+          var lonDifference = -0.001786354167
+
+          var Axhr = new XMLHttpRequest();
+          Axhr.open("GET", "http://sensor-api.localdata.com/api/v1/sources/ci4yfbbdb000d03zzoq8kjdl0/entries?count=1&sort=desc", false);
+          Axhr.send();
+          var Aresponse = JSON.parse(Axhr.responseText);
+          var Aid = Aresponse.data[0].source;
+          var AlocationLatitude = Aresponse.data[0].data.location[1];
+          var AlocationLongitude = Aresponse.data[0].data.location[0];
+          var Arow = Math.round((originLatitude - AlocationLatitude) / latDifference);
+          var Acolumn = Math.round((originLongitude - AlocationLongitude) / lonDifference);
+          var Asound = Aresponse.data[0].data.sound;
+
+          var Bxhr = new XMLHttpRequest();
+          Bxhr.open("GET", "http://sensor-api.localdata.com/api/v1/sources/ci4yhy9yy000f03zznho5nm7c/entries?count=1&sort=desc", false);
+          Bxhr.send();
+          var Bresponse = JSON.parse(Bxhr.responseText);
+          var Bid = Bresponse.data[0].source;
+          var BlocationLatitude = Bresponse.data[0].data.location[1];
+          var BlocationLongitude = Bresponse.data[0].data.location[0];
+          var Brow = Math.round((originLatitude - BlocationLatitude) / latDifference);
+          var Bcolumn = Math.round((originLongitude - BlocationLongitude) / lonDifference);
+          var Bsound = Bresponse.data[0].data.sound;
+
+          var Cxhr = new XMLHttpRequest();
+          Cxhr.open("GET", "http://sensor-api.localdata.com/api/v1/sources/ci4yyrdqi000j03zz8ylornqd/entries?count=1&sort=desc", false);
+          Cxhr.send();
+          var Cresponse = JSON.parse(Cxhr.responseText);
+          var Cid = Cresponse.data[0].source;
+          var ClocationLatitude = Cresponse.data[0].data.location[1];
+          var ClocationLongitude = Cresponse.data[0].data.location[0];
+          var Crow = Math.round((originLatitude - ClocationLatitude) / latDifference);
+          var Ccolumn = Math.round((originLongitude - ClocationLongitude) / lonDifference);
+          var Csound = Cresponse.data[0].data.sound;
+
+          var Dxhr = new XMLHttpRequest();
+          Dxhr.open("GET", "http://sensor-api.localdata.com/api/v1/sources/ci4vy1tfy000m02s7v29jkkx4/entries?count=1&sort=desc", false);
+          Dxhr.send();
+          var Dresponse = JSON.parse(Dxhr.responseText);
+          var Did = Dresponse.data[0].source;
+          var DlocationLatitude = Dresponse.data[0].data.location[1];
+          var DlocationLongitude = Dresponse.data[0].data.location[0];
+          var Drow = Math.round((originLatitude - DlocationLatitude) / latDifference);
+          var Dcolumn = Math.round((originLongitude - DlocationLongitude) / lonDifference);
+          var Dsound = Dresponse.data[0].data.sound;
+
+          var Exhr = new XMLHttpRequest();
+          Exhr.open("GET", "http://sensor-api.localdata.com/api/v1/sources/ci4lnqzte000002xpokc9d25v/entries?count=1&sort=desc", false);
+          Exhr.send();
+          var Eresponse = JSON.parse(Exhr.responseText);
+          var Eid = Eresponse.data[0].source;
+          var ElocationLatitude = Eresponse.data[0].data.location[1];
+          var ElocationLongitude = Eresponse.data[0].data.location[0];
+          var Erow = Math.round((originLatitude - ElocationLatitude) / latDifference);
+          var Ecolumn = Math.round((originLongitude - ElocationLongitude) / lonDifference);
+          var Esound = Eresponse.data[0].data.sound;
+
+          var Fxhr = new XMLHttpRequest();
+          Fxhr.open("GET", "http://sensor-api.localdata.com/api/v1/sources/ci4usvy81000302s7whpk8qlp/entries?count=1&sort=desc", false);
+          Fxhr.send();
+          var Fresponse = JSON.parse(Fxhr.responseText);
+          var Fid = Fresponse.data[0].source;
+          var FlocationLatitude = Fresponse.data[0].data.location[1];
+          var FlocationLongitude = Fresponse.data[0].data.location[0];
+          var Frow = Math.round((originLatitude - FlocationLatitude) / latDifference);
+          var Fcolumn = Math.round((originLongitude - FlocationLongitude) / lonDifference);
+          var Fsound = Fresponse.data[0].data.sound;
+
+          var Gxhr = new XMLHttpRequest();
+          Gxhr.open("GET", "http://sensor-api.localdata.com/api/v1/sources/ci4usvryz000202s7llxjafaf/entries?count=1&sort=desc", false);
+          Gxhr.send();
+          var Gresponse = JSON.parse(Gxhr.responseText);
+          var Gid = Gresponse.data[0].source;
+          var GlocationLatitude = Gresponse.data[0].data.location[1];
+          var GlocationLongitude = Gresponse.data[0].data.location[0];
+          var Grow = Math.round((originLatitude - GlocationLatitude) / latDifference);
+          var Gcolumn = Math.round((originLongitude - GlocationLongitude) / lonDifference);
+          var Gsound = Gresponse.data[0].data.sound;
+
+          var Hxhr = new XMLHttpRequest();
+          Hxhr.open("GET", "http://sensor-api.localdata.com/api/v1/sources/ci4xcxxgc000n02tci92gpvi6/entries?count=1&sort=desc", false);
+          Hxhr.send();
+          var Hresponse = JSON.parse(Hxhr.responseText);
+          var Hid = Hresponse.data[0].source;
+          var HlocationLatitude = Hresponse.data[0].data.location[1];
+          var HlocationLongitude = Hresponse.data[0].data.location[0];
+          var Hrow = Math.round((originLatitude - HlocationLatitude) / latDifference);
+          var Hcolumn = Math.round((originLongitude - HlocationLongitude) / lonDifference);
+          var Hsound = Hresponse.data[0].data.sound;
+
+          var Ixhr = new XMLHttpRequest();
+          Ixhr.open("GET", "http://sensor-api.localdata.com/api/v1/sources/ci4usss1t000102s7hkg0rpqg/entries?count=1&sort=desc", false);
+          Ixhr.send();
+          var Iresponse = JSON.parse(Ixhr.responseText);
+          var Iid = Iresponse.data[0].source;
+          var IlocationLatitude = Iresponse.data[0].data.location[1];
+          var IlocationLongitude = Iresponse.data[0].data.location[0];
+          var Irow = Math.round((originLatitude - IlocationLatitude) / latDifference);
+          var Icolumn = Math.round((originLongitude - IlocationLongitude) / lonDifference);
+          var Isound = Iresponse.data[0].data.sound;
+
+          var Jxhr = new XMLHttpRequest();
+          Jxhr.open("GET", "http://sensor-api.localdata.com/api/v1/sources/ci4tmxpz8000002w7au38un50/entries?count=1&sort=desc", false);
+          Jxhr.send();
+          var Jresponse = JSON.parse(Jxhr.responseText);
+          var Jid = Jresponse.data[0].source;
+          var JlocationLatitude = Jresponse.data[0].data.location[1];
+          var JlocationLongitude = Jresponse.data[0].data.location[0];
+          var Jrow = Math.round((originLatitude - JlocationLatitude) / latDifference);
+          var Jcolumn = Math.round((originLongitude - JlocationLongitude) / lonDifference);
+          var Jsound = Jresponse.data[0].data.sound;
+
+          var Kxhr = new XMLHttpRequest();
+          Kxhr.open("GET", "http://sensor-api.localdata.com/api/v1/sources/ci4yf50s5000c03zzt4h2tnsq/entries?count=1&sort=desc", false);
+          Kxhr.send();
+          var Kresponse = JSON.parse(Kxhr.responseText);
+          var Kid = Kresponse.data[0].source;
+          var KlocationLatitude = Kresponse.data[0].data.location[1];
+          var KlocationLongitude = Kresponse.data[0].data.location[0];
+          var Krow = Math.round((originLatitude - KlocationLatitude) / latDifference);
+          var Kcolumn = Math.round((originLongitude - KlocationLongitude) / lonDifference);
+          var Ksound = Kresponse.data[0].data.sound;
+
+          var Lxhr = new XMLHttpRequest();
+          Lxhr.open("GET", "http://sensor-api.localdata.com/api/v1/sources/ci4ut5zu5000402s7g6nihdn0/entries?count=1&sort=desc", false);
+          Lxhr.send();
+          var Lresponse = JSON.parse(Lxhr.responseText);
+          var Lid = Lresponse.data[0].source;
+          var LlocationLatitude = Lresponse.data[0].data.location[1];
+          var LlocationLongitude = Lresponse.data[0].data.location[0];
+          var Lrow = Math.round((originLatitude - LlocationLatitude) / latDifference);
+          var Lcolumn = Math.round((originLongitude - LlocationLongitude) / lonDifference);
+          var Lsound = Lresponse.data[0].data.sound;
+
+
+          var sensors = [
+            {
+              "id" : Aid,
+              "latitude" : AlocationLatitude,
+              "longitude" : AlocationLongitude,
+              "row" : Arow,
+              "column" : Acolumn,
+              "sound" : Asound
+            },
+            {
+              "id" : Bid,
+              "latitude" : BlocationLatitude,
+              "longitude" : BlocationLongitude,
+              "row" : Brow,
+              "column" : Bcolumn,
+              "sound" : Bsound
+            },
+            {
+              "id" : Cid,
+              "latitude" : ClocationLatitude,
+              "longitude" : ClocationLongitude,
+              "row" : Crow,
+              "column" : Ccolumn,
+              "sound" : Csound
+            },
+            {
+              "id" : Did,
+              "latitude" : DlocationLatitude,
+              "longitude" : DlocationLongitude,
+              "row" : Drow,
+              "column" : Dcolumn,
+              "sound" : Dsound
+            },
+            {
+              "id" : Eid,
+              "latitude" : ElocationLatitude,
+              "longitude" : ElocationLongitude,
+              "row" : Erow,
+              "column" : Ecolumn,
+              "sound" : Esound
+            },
+            {
+              "id" : Fid,
+              "latitude" : FlocationLatitude,
+              "longitude" : FlocationLongitude,
+              "row" : Frow,
+              "column" : Fcolumn,
+              "sound" : Fsound
+            },
+            {
+              "id" : Gid,
+              "latitude" : GlocationLatitude,
+              "longitude" : GlocationLongitude,
+              "row" : Grow,
+              "column" : Gcolumn,
+              "sound" : Gsound
+            },
+            {
+              "id" : Hid,
+              "latitude" : HlocationLatitude,
+              "longitude" : HlocationLongitude,
+              "row" : Hrow,
+              "column" : Hcolumn,
+              "sound" : Hsound
+            },
+            {
+              "id" : Iid,
+              "latitude" : IlocationLatitude,
+              "longitude" : IlocationLongitude,
+              "row" : Irow,
+              "column" : Icolumn,
+              "sound" : Isound
+            },
+            {
+              "id" : Jid,
+              "latitude" : JlocationLatitude,
+              "longitude" : JlocationLongitude,
+              "row" : Jrow,
+              "column" : Jcolumn,
+              "sound" : Jsound
+            },
+            {
+              "id" : Kid,
+              "latitude" : KlocationLatitude,
+              "longitude" : KlocationLongitude,
+              "row" : Krow,
+              "column" : Kcolumn,
+              "sound" : Ksound
+            },
+            {
+              "id" : Lid,
+              "latitude" : LlocationLatitude,
+              "longitude" : LlocationLongitude,
+              "row" : Lrow,
+              "column" : Lcolumn,
+              "sound" : Lsound
+            }
+          ];
+
+          console.log(sensors);
+          var url = 'http://localhost:8000/?grid=4&zoom=4&s=[{"' + Arow + '":[' + Acolumn + ']},{"' + Brow + '":[' + Bcolumn + ']},{"' + Crow + '":[' + Ccolumn + ']},{"' + Drow + '":[' + Dcolumn + ']},{"' + Erow + '":[' + Ecolumn + ']},{"' + Frow + '":[' + Fcolumn + ']},{"' + Grow + '":[' + Gcolumn + ']},{"' + Hrow + '":[' + Hcolumn + ']},{"' + Irow + '":[' + Icolumn + ']},{"' + Jrow + '":[' + Jcolumn + ']},{"' + Krow + '":[' + Kcolumn + ']},{"' + Lrow + '":[' + Lcolumn + ']},]';
+          console.log(url);
+          document.location.assign(url)
+
         },
 
 
