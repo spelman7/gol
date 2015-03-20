@@ -774,8 +774,12 @@
             }
           ];
 
+
+
           console.log(sensors);
-          var url = 'http://localhost:8000/?grid=4&zoom=4&s=[{"' + Arow + '":[' + Acolumn + ']},{"' + Brow + '":[' + Bcolumn + ']},{"' + Crow + '":[' + Ccolumn + ']},{"' + Drow + '":[' + Dcolumn + ']},{"' + Erow + '":[' + Ecolumn + ']},{"' + Frow + '":[' + Fcolumn + ']},{"' + Grow + '":[' + Gcolumn + ']},{"' + Hrow + '":[' + Hcolumn + ']},{"' + Irow + '":[' + Icolumn + ']},{"' + Jrow + '":[' + Jcolumn + ']},{"' + Krow + '":[' + Kcolumn + ']},{"' + Lrow + '":[' + Lcolumn + ']},]';
+          var local = 'http://localhost:8000/'
+          var heroku = 'https://thawing-river-9160.herokuapp.com/'
+          var url = heroku + '?grid=4&zoom=4&s=[{"' + Arow + '":[' + Acolumn + ']},{"' + Brow + '":[' + Bcolumn + ']},{"' + Crow + '":[' + Ccolumn + ']},{"' + Drow + '":[' + Dcolumn + ']},{"' + Erow + '":[' + Ecolumn + ']},{"' + Frow + '":[' + Fcolumn + ']},{"' + Grow + '":[' + Gcolumn + ']},{"' + Hrow + '":[' + Hcolumn + ']},{"' + Irow + '":[' + Icolumn + ']},{"' + Jrow + '":[' + Jcolumn + ']},{"' + Krow + '":[' + Kcolumn + ']},{"' + Lrow + '":[' + Lcolumn + ']},]';
           console.log(url);
           document.location.assign(url)
 
