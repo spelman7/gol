@@ -105,8 +105,8 @@
       },
 
       {
-        columns : 48,
-        rows : 48,
+        columns : 96,
+        rows : 96,
         cellSize : 1
       }
       ]
@@ -681,7 +681,7 @@
        * setNoGridOn
        */
       setNoGridOn : function() {
-        this.cellSize = GOL.zoom.schemes[GOL.zoom.current].cellSize + 1;
+        this.cellSize = GOL.zoom.schemes[GOL.zoom.current].cellSize;
         this.cellSpace = 0;
       },
 
@@ -691,7 +691,7 @@
        */
       setNoGridOff : function() {
         this.cellSize = GOL.zoom.schemes[GOL.zoom.current].cellSize;
-        this.cellSpace = 1;
+        this.cellSpace = 0;
       },
 
 
@@ -1154,7 +1154,7 @@
       mousePosition : function (e) {
         // http://www.malleus.de/FAQ/getImgMousePos.html
         // http://www.quirksmode.org/js/events_properties.html#position
-        var event, x, y, domObject, posx = 0, posy = 0, top = 0, left = 0, cellSize = GOL.zoom.schemes[GOL.zoom.current].cellSize + 1;
+        var event, x, y, domObject, posx = 0, posy = 0, top = 0, left = 0, cellSize = GOL.zoom.schemes[GOL.zoom.current].cellSize;
 
         event = e;
         if (!event) {
