@@ -541,6 +541,7 @@
           var originLongitude = -122.523032
           var latDifference = 0.0013851875
           var lonDifference = -0.001786354167
+          console.log("DEBUG");
 
           var Axhr = new XMLHttpRequest();
           Axhr.open("GET", "http://sensor-api.localdata.com/api/v1/sources/ci4yfbbdb000d03zzoq8kjdl0/entries?count=1&sort=desc", false);
