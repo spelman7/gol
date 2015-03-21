@@ -537,10 +537,10 @@
          *
          */
         sense : function() {
-          var originLatitude = 37.837571
-          var originLongitude = -122.523032
-          var latDifference = 0.0013851875
-          var lonDifference = -0.001786354167
+          var originLatitude = 37.837571;
+          var originLongitude = -122.523032;
+          var latDifference = 0.0013851875;
+          var lonDifference = -0.001786354167;
           console.log("DEBUG");
 
           var Axhr = new XMLHttpRequest();
@@ -775,12 +775,41 @@
             }
           ];
 
+          function compare(a,b) {
+            return a.sound - b.sound;
+          }
 
+          sensors.sort(compare);
 
           console.log(sensors);
+
+          var smallGliderUpLeft = '{"' + (sensors[0].row - 1) + '":[' + (sensors[0].column - 1) + ',' + (sensors[0].column) + ',' + (sensors[0].column + 1) + ']},{"' + (sensors[0].row) + '":[' + (sensors[0].column - 1) + ']},{"' + (sensors[0].row + 1) + '":[' + (sensors[0].column) + ']}';
+
+          var smallGliderUpRight = '{"' + (sensors[1].row - 1) + '":[' + (sensors[1].column - 1) + ',' + (sensors[1].column) + ',' + (sensors[1].column + 1) + ']},{"' + (sensors[1].row) + '":[' + (sensors[1].column + 1) + ']},{"' + (sensors[1].row + 1) + '":[' + (sensors[1].column) + ']}';
+
+          var smallGliderDownLeft = '{"' + (sensors[2].row + 1) + '":[' + (sensors[2].column - 1) + ',' + (sensors[2].column) + ',' + (sensors[2].column + 1) + ']},{"' + (sensors[2].row) + '":[' + (sensors[2].column - 1) + ']},{"' + (sensors[2].row - 1) + '":[' + (sensors[2].column) + ']}';
+
+          var smallGliderDownRight = '{"' + (sensors[3].row + 1) + '":[' + (sensors[3].column - 1) + ',' + (sensors[3].column) + ',' + (sensors[3].column + 1) + ']},{"' + (sensors[3].row) + '":[' + (sensors[3].column + 1) + ']},{"' + (sensors[3].row - 1) + '":[' + (sensors[3].column) + ']}';
+
+          var bigGliderLeft = '{"' + (sensors[4].row - 1) + '":[' + (sensors[4].column - 1) + ',' + (sensors[4].column + 2) + ']},{"' + (sensors[4].row) + '":[' + (sensors[4].column - 2) + ']},{"' + (sensors[4].row + 1) + '":[' + (sensors[4].column - 2) + ',' + (sensors[4].column + 2) + ']},{"' + (sensors[4].row + 2) + '":[' + (sensors[4].column - 2) + ',' + (sensors[4].column - 1) + ',' + (sensors[4].column) + ',' + (sensors[4].column + 1) + ']}';
+
+          var bigGliderRight = '{"' + (sensors[5].row - 1) + '":[' + (sensors[5].column - 2) + ',' + (sensors[5].column + 1) + ']},{"' + (sensors[5].row) + '":[' + (sensors[5].column + 2) + ']},{"' + (sensors[5].row + 1) + '":[' + (sensors[5].column - 2) + ',' + (sensors[5].column + 2) + ']},{"' + (sensors[5].row + 2) + '":[' + (sensors[5].column - 1) + ',' + (sensors[5].column) + ',' + (sensors[5].column + 1) + ',' + (sensors[5].column + 2) + ']}';
+
+          var bigGliderUp = '{"' + (sensors[6].row - 2) + '":[' + (sensors[6].column - 2) + ',' + (sensors[6].column - 1) + ',' + (sensors[6].column) + ']},{"' + (sensors[6].row - 1) + '":[' + (sensors[6].column - 2) + ',' + (sensors[6].column + 1) + ']},{"' + (sensors[6].row) + '":[' + (sensors[6].column - 2) + ']},{"' + (sensors[6].row + 1) + '":[' + (sensors[6].column - 2) + ']},{"' + (sensors[6].row + 2) + '":[' + (sensors[6].column - 1) + ',' + (sensors[6].column + 1) + ']}';
+
+          var bigGliderDown = '{"' + (sensors[7].row - 2) + '":[' + (sensors[7].column - 1) + ',' + (sensors[7].column + 1) + ']},{"' + (sensors[7].row - 1) + '":[' + (sensors[7].column + 2) + ']},{"' + (sensors[7].row) + '":[' + (sensors[7].column + 2) + ']},{"' + (sensors[7].row + 1) + '":[' + (sensors[7].column - 1) + ',' + (sensors[7].column + 2) + ']},{"' + (sensors[7].row + 2) + '":[' + (sensors[7].column) + ',' + (sensors[7].column + 1) + ',' + (sensors[7].column + 1) + ']}';
+
+          var pentominoLeft = '{"' + (sensors[8].row - 1) + '":[' + (sensors[8].column) + ',' + (sensors[8].column + 1) + ']},{"' + (sensors[8].row) + '":[' + (sensors[8].column - 1) + ',' + (sensors[8].column) + ']},{"' + (sensors[8].row + 1) + '":[' + (sensors[8].column) + ']}';
+
+          var pentominoRight = '{"' + (sensors[9].row - 1) + '":[' + (sensors[9].column - 1) + ',' + (sensors[9].column) + ']},{"' + (sensors[9].row) + '":[' + (sensors[9].column) + ',' + (sensors[9].column + 1) + ']},{"' + (sensors[9].row + 1) + '":[' + (sensors[9].column) + ']}';
+
+          var acornLeft = '{"' + (sensors[10].row - 1) + '":[' + (sensors[10].column - 2) + ']},{"' + (sensors[10].row) + '":[' + (sensors[10].column) + ']},{"' + (sensors[10].row + 1) + '":[' + (sensors[10].column - 3) + ',' + (sensors[10].column - 2) + ',' + (sensors[10].column + 1) + ',' + (sensors[10].column + 2) + ',' + (sensors[10].column + 3) + ']}';
+
+          var acornRight = '{"' + (sensors[11].row - 1) + '":[' + (sensors[11].column + 2) + ']},{"' + (sensors[11].row) + '":[' + (sensors[11].column) + ']},{"' + (sensors[11].row + 1) + '":[' + (sensors[11].column - 3) + ',' + (sensors[11].column - 2) + ',' + (sensors[11].column - 1) + ',' + (sensors[11].column + 2) + ',' + (sensors[11].column + 3) + ']}';
+
           var local = 'http://localhost:8000/';
           var heroku = 'https://thawing-river-9160.herokuapp.com/';
-          var url = heroku + '?grid=4&zoom=4&s=[{"' + Arow + '":[' + Acolumn + ']},{"' + Brow + '":[' + Bcolumn + ']},{"' + Crow + '":[' + Ccolumn + ']},{"' + Drow + '":[' + Dcolumn + ']},{"' + Erow + '":[' + Ecolumn + ']},{"' + Frow + '":[' + Fcolumn + ']},{"' + Grow + '":[' + Gcolumn + ']},{"' + Hrow + '":[' + Hcolumn + ']},{"' + Irow + '":[' + Icolumn + ']},{"' + Jrow + '":[' + Jcolumn + ']},{"' + Krow + '":[' + Kcolumn + ']},{"' + Lrow + '":[' + Lcolumn + ']},]';
+          var url = heroku + '?grid=4&zoom=4&s=[' + smallGliderUpLeft + ',' + smallGliderUpRight + ',' + smallGliderDownLeft + ',' + smallGliderDownRight + ',' + bigGliderLeft + ',' + bigGliderRight + ',' + bigGliderUp + ',' + bigGliderDown + ',' + pentominoLeft + ',' + pentominoRight + ',' + acornLeft + ',' + acornRight + ']';
           console.log(url);
           document.location.assign(url)
 
