@@ -13,7 +13,7 @@
     columns : 0,
     rows : 0,
 
-    waitTime: 1000,
+    waitTime: 250,
     generation : 0,
 
     running : false,
@@ -120,9 +120,9 @@
 
       schemes : [
       {
-        dead : '#222222',
-        trail : ['#B5ECA2'],
-        alive : ['#9898FF', '#8585FF', '#7272FF', '#5F5FFF', '#4C4CFF', '#3939FF', '#2626FF', '#1313FF', '#0000FF', '#1313FF', '#2626FF', '#3939FF', '#4C4CFF', '#5F5FFF', '#7272FF', '#8585FF']
+        dead : '#433A3F',
+        trail : ['#3D5A6C'],
+        alive : ['#CBEF43']
       },
 
       {
@@ -784,27 +784,16 @@
           console.log(sensors);
 
           var smallGliderUpLeft = '{"' + (sensors[0].row - 1) + '":[' + (sensors[0].column - 1) + ',' + (sensors[0].column) + ',' + (sensors[0].column + 1) + ']},{"' + (sensors[0].row) + '":[' + (sensors[0].column - 1) + ']},{"' + (sensors[0].row + 1) + '":[' + (sensors[0].column) + ']}';
-
           var smallGliderUpRight = '{"' + (sensors[1].row - 1) + '":[' + (sensors[1].column - 1) + ',' + (sensors[1].column) + ',' + (sensors[1].column + 1) + ']},{"' + (sensors[1].row) + '":[' + (sensors[1].column + 1) + ']},{"' + (sensors[1].row + 1) + '":[' + (sensors[1].column) + ']}';
-
           var smallGliderDownLeft = '{"' + (sensors[2].row + 1) + '":[' + (sensors[2].column - 1) + ',' + (sensors[2].column) + ',' + (sensors[2].column + 1) + ']},{"' + (sensors[2].row) + '":[' + (sensors[2].column - 1) + ']},{"' + (sensors[2].row - 1) + '":[' + (sensors[2].column) + ']}';
-
           var smallGliderDownRight = '{"' + (sensors[3].row + 1) + '":[' + (sensors[3].column - 1) + ',' + (sensors[3].column) + ',' + (sensors[3].column + 1) + ']},{"' + (sensors[3].row) + '":[' + (sensors[3].column + 1) + ']},{"' + (sensors[3].row - 1) + '":[' + (sensors[3].column) + ']}';
-
           var bigGliderLeft = '{"' + (sensors[4].row - 1) + '":[' + (sensors[4].column - 1) + ',' + (sensors[4].column + 2) + ']},{"' + (sensors[4].row) + '":[' + (sensors[4].column - 2) + ']},{"' + (sensors[4].row + 1) + '":[' + (sensors[4].column - 2) + ',' + (sensors[4].column + 2) + ']},{"' + (sensors[4].row + 2) + '":[' + (sensors[4].column - 2) + ',' + (sensors[4].column - 1) + ',' + (sensors[4].column) + ',' + (sensors[4].column + 1) + ']}';
-
           var bigGliderRight = '{"' + (sensors[5].row - 1) + '":[' + (sensors[5].column - 2) + ',' + (sensors[5].column + 1) + ']},{"' + (sensors[5].row) + '":[' + (sensors[5].column + 2) + ']},{"' + (sensors[5].row + 1) + '":[' + (sensors[5].column - 2) + ',' + (sensors[5].column + 2) + ']},{"' + (sensors[5].row + 2) + '":[' + (sensors[5].column - 1) + ',' + (sensors[5].column) + ',' + (sensors[5].column + 1) + ',' + (sensors[5].column + 2) + ']}';
-
           var bigGliderUp = '{"' + (sensors[6].row - 2) + '":[' + (sensors[6].column - 2) + ',' + (sensors[6].column - 1) + ',' + (sensors[6].column) + ']},{"' + (sensors[6].row - 1) + '":[' + (sensors[6].column - 2) + ',' + (sensors[6].column + 1) + ']},{"' + (sensors[6].row) + '":[' + (sensors[6].column - 2) + ']},{"' + (sensors[6].row + 1) + '":[' + (sensors[6].column - 2) + ']},{"' + (sensors[6].row + 2) + '":[' + (sensors[6].column - 1) + ',' + (sensors[6].column + 1) + ']}';
-
           var bigGliderDown = '{"' + (sensors[7].row - 2) + '":[' + (sensors[7].column - 1) + ',' + (sensors[7].column + 1) + ']},{"' + (sensors[7].row - 1) + '":[' + (sensors[7].column + 2) + ']},{"' + (sensors[7].row) + '":[' + (sensors[7].column + 2) + ']},{"' + (sensors[7].row + 1) + '":[' + (sensors[7].column - 1) + ',' + (sensors[7].column + 2) + ']},{"' + (sensors[7].row + 2) + '":[' + (sensors[7].column) + ',' + (sensors[7].column + 1) + ',' + (sensors[7].column + 1) + ']}';
-
           var pentominoLeft = '{"' + (sensors[8].row - 1) + '":[' + (sensors[8].column) + ',' + (sensors[8].column + 1) + ']},{"' + (sensors[8].row) + '":[' + (sensors[8].column - 1) + ',' + (sensors[8].column) + ']},{"' + (sensors[8].row + 1) + '":[' + (sensors[8].column) + ']}';
-
           var pentominoRight = '{"' + (sensors[9].row - 1) + '":[' + (sensors[9].column - 1) + ',' + (sensors[9].column) + ']},{"' + (sensors[9].row) + '":[' + (sensors[9].column) + ',' + (sensors[9].column + 1) + ']},{"' + (sensors[9].row + 1) + '":[' + (sensors[9].column) + ']}';
-
           var acornLeft = '{"' + (sensors[10].row - 1) + '":[' + (sensors[10].column - 2) + ']},{"' + (sensors[10].row) + '":[' + (sensors[10].column) + ']},{"' + (sensors[10].row + 1) + '":[' + (sensors[10].column - 3) + ',' + (sensors[10].column - 2) + ',' + (sensors[10].column + 1) + ',' + (sensors[10].column + 2) + ',' + (sensors[10].column + 3) + ']}';
-
           var acornRight = '{"' + (sensors[11].row - 1) + '":[' + (sensors[11].column + 2) + ']},{"' + (sensors[11].row) + '":[' + (sensors[11].column) + ']},{"' + (sensors[11].row + 1) + '":[' + (sensors[11].column - 3) + ',' + (sensors[11].column - 2) + ',' + (sensors[11].column - 1) + ',' + (sensors[11].column + 2) + ',' + (sensors[11].column + 3) + ']}';
 
           var local = 'http://localhost:8000/';
