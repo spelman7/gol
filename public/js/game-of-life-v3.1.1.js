@@ -797,7 +797,7 @@
           var acornRight = '{"' + (sensors[11].row - 1) + '":[' + (sensors[11].column + 2) + ']},{"' + (sensors[11].row) + '":[' + (sensors[11].column) + ']},{"' + (sensors[11].row + 1) + '":[' + (sensors[11].column - 3) + ',' + (sensors[11].column - 2) + ',' + (sensors[11].column - 1) + ',' + (sensors[11].column + 2) + ',' + (sensors[11].column + 3) + ']}';
 
           var local = 'http://localhost:8000/';
-          var heroku = 'https://thawing-river-9160.herokuapp.com/';
+          var heroku = 'http://thawing-river-9160.herokuapp.com/';
           var url = heroku + '?grid=4&zoom=4&s=[' + smallGliderUpLeft + ',' + smallGliderUpRight + ',' + smallGliderDownLeft + ',' + smallGliderDownRight + ',' + bigGliderLeft + ',' + bigGliderRight + ',' + bigGliderUp + ',' + bigGliderDown + ',' + pentominoLeft + ',' + pentominoRight + ',' + acornLeft + ',' + acornRight + ']';
           console.log(url);
           document.location.assign(url)
