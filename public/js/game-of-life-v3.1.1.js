@@ -45,7 +45,8 @@
     },
 
     // Initial state
-    initialState : '[{"20":[20]},{"21":[21]},{"22":[20,22,23,24,25]}]',
+    // initialState : '[{"20":[20]},{"21":[21]},{"22":[20,22,23,24,25]}]',
+    initialState : '[{"":[]}]',
 
 
     // Trail state
@@ -108,6 +109,12 @@
         columns : 96,
         rows : 96,
         cellSize : 1
+      },
+
+      {
+        columns : 96,
+        rows : 96,
+        cellSize: 4
       }
       ]
     },
